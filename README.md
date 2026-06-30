@@ -1,1 +1,270 @@
-# project
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>프로젝트 포트폴리오 - ROS1 기반 모바일 매니퓰레이터</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Pretendard:wght@300;400;500;600;700&display=swap');
+        body {
+            font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, Roboto, 'Helvetica Neue', 'Segoe UI', 'Apple SD Gothic Neo', 'Noto Sans KR', 'Malgun Gothic', sans-serif;
+            background-color: #f8fafc;
+        }
+        .gradient-text {
+            background: linear-gradient(135deg, #2563eb, #9333ea);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .card-hover {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .card-hover:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        /* 커스텀 스크롤바 */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #f1f5f9; }
+        ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
+    </style>
+</head>
+<body class="text-slate-800 antialiased selection:bg-blue-200 selection:text-blue-900">
+
+    <header class="bg-white border-b border-slate-200 overflow-hidden relative">
+        <!-- 배경 패턴 -->
+        <div class="absolute inset-0 opacity-[0.03] z-0" style="background-image: radial-gradient(#000 1px, transparent 1px); background-size: 24px 24px;"></div>
+        
+        <div class="max-w-5xl mx-auto px-6 py-20 sm:py-28 lg:px-8 text-center relative z-10">
+            <div class="inline-flex items-center rounded-full px-4 py-1.5 text-sm font-semibold text-blue-700 bg-blue-50 ring-1 ring-inset ring-blue-600/20 mb-6 shadow-sm">
+                Robotics Engineering Portfolio
+            </div>
+            <h1 class="text-4xl font-extrabold tracking-tight text-slate-900 sm:text-5xl md:text-6xl mb-6">
+                ROS1 기반 <span class="gradient-text">자율주행 모바일 매니퓰레이터</span>
+            </h1>
+            <p class="mt-6 text-lg leading-8 text-slate-600 max-w-2xl mx-auto">
+                Turtlebot과 Open Manipulator를 통합하여, 비전 AI 기반 객체 인식부터 자율 주행, 그리고 동역학 기반 정밀 파지(Pick & Drop)까지 4차 산업 자동화의 핵심 기술을 구현한 프로젝트입니다.
+            </p>
+            <div class="mt-10 flex flex-wrap items-center justify-center gap-4 text-sm font-medium">
+                <div class="bg-slate-50 border border-slate-200 px-5 py-2.5 rounded-xl shadow-sm flex items-center">
+                    <span class="text-slate-500 mr-2">기간</span>
+                    <span class="text-slate-900">2024.08 - 2025.11</span>
+                </div>
+                <div class="bg-slate-50 border border-slate-200 px-5 py-2.5 rounded-xl shadow-sm flex items-center">
+                    <span class="text-slate-500 mr-2">참여</span>
+                    <span class="text-slate-900">한민우, 손승훈</span>
+                </div>
+                <div class="bg-slate-50 border border-slate-200 px-5 py-2.5 rounded-xl shadow-sm flex items-center">
+                    <span class="text-slate-500 mr-2">역할</span>
+                    <span class="text-slate-900">제어 알고리즘 및 ROS 통합</span> <!-- 본인 역할로 수정하세요 -->
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- 1. 프로젝트 데모 섹션 -->
+    <section class="max-w-6xl mx-auto px-6 py-16 -mt-10 relative z-20">
+        <div class="bg-white rounded-3xl shadow-xl ring-1 ring-slate-200 p-8 md:p-12">
+            <h2 class="text-2xl font-bold text-slate-900 mb-8 flex items-center justify-center">
+                <svg class="w-7 h-7 mr-3 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                Project Demo
+            </h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- Video 1 -->
+                <div class="space-y-3">
+                    <div class="aspect-video bg-black rounded-2xl overflow-hidden shadow-md relative">
+                        <video controls class="w-full h-full object-contain bg-black">
+                            <source src="pick up.mp4" type="video/mp4">
+                            브라우저가 동영상을 지원하지 않습니다.
+                        </video>
+                    </div>
+                    <p class="text-center font-medium text-slate-700">매니퓰레이터 Pick Up 테스트</p>
+                </div>
+                <!-- Video 2 -->
+                <div class="space-y-3">
+                    <div class="aspect-video bg-black rounded-2xl overflow-hidden shadow-md relative">
+                        <video controls class="w-full h-full object-contain bg-black">
+                            <source src="20251122 detect&pick up.mp4" type="video/mp4">
+                            브라우저가 동영상을 지원하지 않습니다.
+                        </video>
+                    </div>
+                    <p class="text-center font-medium text-slate-700">객체 인식(Detect) 및 파지 자율 동작</p>
+                </div>
+            </div>
+            
+            <!-- 작동 시나리오 프로세스 -->
+            <div class="mt-12 bg-slate-50 rounded-2xl p-6 border border-slate-100">
+                <h3 class="text-sm font-semibold text-slate-500 uppercase tracking-wider mb-4 text-center">Operation Scenario</h3>
+                <div class="flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-4 text-sm font-medium text-slate-700">
+                    <div class="bg-white px-4 py-2 rounded-lg shadow-sm border border-slate-200">1. Patrol (순찰)</div>
+                    <svg class="w-5 h-5 text-slate-400 rotate-90 sm:rotate-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                    <div class="bg-white px-4 py-2 rounded-lg shadow-sm border border-slate-200 text-blue-600">2. Object Detect (탐지)</div>
+                    <svg class="w-5 h-5 text-slate-400 rotate-90 sm:rotate-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                    <div class="bg-white px-4 py-2 rounded-lg shadow-sm border border-slate-200">3. Approach (접근)</div>
+                    <svg class="w-5 h-5 text-slate-400 rotate-90 sm:rotate-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                    <div class="bg-white px-4 py-2 rounded-lg shadow-sm border border-slate-200 text-purple-600">4. Pick up & Drop (조작)</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 2. 핵심 기술 섹션 -->
+    <section class="max-w-6xl mx-auto px-6 py-12">
+        <div class="text-center mb-12">
+            <h2 class="text-3xl font-bold text-slate-900">Core Technologies</h2>
+            <p class="mt-4 text-slate-600">성공적인 통합 시스템을 위해 구현한 3가지 핵심 로봇 기술</p>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+            <!-- 1. 제어 -->
+            <div class="card-hover bg-white rounded-2xl p-8 border border-slate-200 shadow-sm">
+                <div class="w-12 h-12 bg-blue-100 text-blue-600 rounded-xl flex items-center justify-center mb-6">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z"></path></svg>
+                </div>
+                <h3 class="text-xl font-bold text-slate-900 mb-3">TDC 기반 동역학 제어</h3>
+                <p class="text-slate-600 text-sm mb-4 leading-relaxed">
+                    로봇 팔의 정확한 관성행렬을 알 수 없는 한계를 극복하기 위해 Time Delay Control(TDC)을 적용했습니다. 이전 시점의 동역학 항으로 현 시점을 추정하여 비선형성을 상쇄합니다.
+                </p>
+                <div class="bg-slate-50 p-3 rounded-lg text-xs overflow-x-auto text-center border border-slate-100 mb-4">
+                    \(\tau_{t}^{TDC} = -\hat{M}\Phi_{t} + \hat{M}(\ddot{q}_{d} + K_{d}\dot{e}_{t} + K_{p}e_{t})\)
+                </div>
+                <p class="text-xs font-semibold text-green-600 flex items-center mt-auto">
+                    <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                    MATLAB 시뮬레이션 결과, PID 대비 정밀한 궤적 추종 입증
+                </p>
+            </div>
+
+            <!-- 2. 주행 -->
+            <div class="card-hover bg-white rounded-2xl p-8 border border-slate-200 shadow-sm">
+                <div class="w-12 h-12 bg-purple-100 text-purple-600 rounded-xl flex items-center justify-center mb-6">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7"></path></svg>
+                </div>
+                <h3 class="text-xl font-bold text-slate-900 mb-3">SLAM & Path Planning</h3>
+                <p class="text-slate-600 text-sm mb-4 leading-relaxed">
+                    Turtlebot의 `amcl` 패키지를 활용하여 환경 지도를 작성하고 위치를 추정합니다. Global Planner와 Local Planner를 결합하여 안정적인 자율 주행을 달성했습니다.
+                </p>
+                <ul class="space-y-2 text-sm text-slate-700">
+                    <li class="flex items-start"><span class="text-blue-500 mr-2">•</span> <b>A* Algorithm:</b> 휴리스틱(추정비용)을 통한 최적의 전역 경로 설정</li>
+                    <li class="flex items-start"><span class="text-blue-500 mr-2">•</span> <b>DWA:</b> 속도/가속도 범위를 고려한 실시간 동적 장애물 회피</li>
+                </ul>
+            </div>
+
+            <!-- 3. 비전 -->
+            <div class="card-hover bg-white rounded-2xl p-8 border border-slate-200 shadow-sm">
+                <div class="w-12 h-12 bg-rose-100 text-rose-600 rounded-xl flex items-center justify-center mb-6">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"></path></svg>
+                </div>
+                <h3 class="text-xl font-bold text-slate-900 mb-3">YOLOv5 실시간 객체 인식</h3>
+                <p class="text-slate-600 text-sm mb-4 leading-relaxed">
+                    연산량이 제한된 라즈베리파이(Raspberry Pi 4) 환경에 맞추어, 빠르고 가벼운 단일 CNN 네트워크인 YOLOv5 모델을 채택하였습니다.
+                </p>
+                <div class="bg-slate-50 p-4 rounded-lg border border-slate-100 text-sm text-slate-700 mt-auto">
+                    목표 객체를 인식하고, 좌표 데이터를 ROS 메세지로 Publish하여 모바일 플랫폼의 접근 및 로봇 팔의 파지 동작을 트리거합니다.
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. 트러블슈팅 (새로 추가된 섹션) -->
+    <section class="bg-slate-50 py-16 border-y border-slate-200">
+        <div class="max-w-4xl mx-auto px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-slate-900">Engineering Challenges & Troubleshooting</h2>
+                <p class="mt-4 text-slate-600">실제 하드웨어 통합 과정에서 발생한 문제점 분석 및 최적화 과정</p>
+            </div>
+
+            <div class="space-y-8">
+                <!-- 트러블슈팅 1 -->
+                <div class="bg-white p-8 rounded-2xl shadow-sm border border-slate-200">
+                    <h3 class="text-lg font-bold text-slate-900 mb-4 flex items-center">
+                        <span class="w-8 h-8 rounded-full bg-slate-100 text-slate-600 flex items-center justify-center mr-3 text-sm">1</span>
+                        SLAM 맵 매칭 오류 및 하드웨어 간섭 노이즈 해결
+                    </h3>
+                    <p class="text-sm text-slate-600 mb-4">
+                        기본 Gmapping 파라미터 사용 시 로봇 팔(Manipulator)이 LiDAR 센서를 가려 자신의 팔을 장애물로 인식하거나 맵이 뭉개지는 현상이 발생했습니다.
+                    </p>
+                    <div class="grid sm:grid-cols-2 gap-4 text-sm">
+                        <div class="bg-slate-50 p-4 rounded-xl border border-slate-100">
+                            <h4 class="font-semibold text-slate-800 mb-2">LiDAR 데이터 최적화</h4>
+                            <ul class="space-y-1 text-slate-600">
+                                <li>• <b>FOV 제한:</b> 후방 노이즈 제거를 위해 센서 수신을 전방 180도(-1.57 ~ +1.57 rad)로 제한</li>
+                                <li>• <b>거리 필터링:</b> 로봇 팔 간섭 방지용 20cm 이내 데이터 무시 및 최대 인식 거리 3.0m로 하향 조정</li>
+                            </ul>
+                        </div>
+                        <div class="bg-slate-50 p-4 rounded-xl border border-slate-100">
+                            <h4 class="font-semibold text-slate-800 mb-2">Gmapping 파라미터 튜닝</h4>
+                            <ul class="space-y-1 text-slate-600">
+                                <li>• <b>minimumScore:</b> 실내 복잡도에 맞춰 140 → 50으로 하향</li>
+                                <li>• <b>particles:</b> 위치 추정 정확도 향상을 위해 100 → 150으로 증가</li>
+                                <li>• <b>linearUpdate:</b> 맵 정밀도를 위해 1.0m → 0.2m로 세밀화</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 트러블슈팅 2 -->
+                <div class="bg-white p-8 rounded-2xl shadow-sm border border-slate-200">
+                    <h3 class="text-lg font-bold text-slate-900 mb-4 flex items-center">
+                        <span class="w-8 h-8 rounded-full bg-slate-100 text-slate-600 flex items-center justify-center mr-3 text-sm">2</span>
+                        Local Path Planning (DWA) 최적화
+                    </h3>
+                    <p class="text-sm text-slate-600 mb-4">
+                        생성된 전역 경로(Global Path)를 기반으로 이동할 때, 동적 장애물을 실시간으로 회피하기 위해 DWA 플래너를 최적화했습니다. 차량의 현재 속도에서 제동 가능한 속도 범위 내의 선속도(\(v\))와 각속도(\(w\)) 조합 중, 목적 함수 \(G(v, w)\)가 최대가 되는 회피 궤적을 추종합니다.
+                    </p>
+                    <div class="bg-blue-50/50 p-4 rounded-xl border border-blue-100 text-center overflow-x-auto">
+                        <span class="text-sm font-medium text-slate-800">
+                            \[ G(v,w) = \alpha \times \text{heading}(v,w) + \beta \times \text{clearance}(v,w) + \gamma \times \text{velocity}(v,w) \]
+                        </span>
+                    </div>
+                </div>
+
+                <!-- 트러블슈팅 3 -->
+                <div class="bg-white p-8 rounded-2xl shadow-sm border border-slate-200">
+                    <h3 class="text-lg font-bold text-slate-900 mb-4 flex items-center">
+                        <span class="w-8 h-8 rounded-full bg-slate-100 text-slate-600 flex items-center justify-center mr-3 text-sm">3</span>
+                        Vision AI 한계 극복 및 경량화 (OpenCV → YOLOv5 + Edge TPU)
+                    </h3>
+                    <p class="text-sm text-slate-600 mb-4">
+                        초기 OpenCV를 활용한 Rule-based 방식(HSV 필터링 등)은 조명 변화에 취약하여 복잡한 배경에서 오인식이 다수 발생했습니다. 이를 극복하기 위해 딥러닝 모델을 도입하고 엣지 디바이스 환경에 맞게 최적화했습니다.
+                    </p>
+                    <div class="grid sm:grid-cols-2 gap-4 text-sm">
+                        <div class="bg-slate-50 p-4 rounded-xl border border-slate-100">
+                            <h4 class="font-semibold text-slate-800 mb-2">하드웨어 가속기 적용</h4>
+                            <p class="text-slate-600">라즈베리파이(Raspberry Pi)의 부족한 연산 능력을 극복하고 실시간 인퍼런스(Inference)를 달성하기 위해 <b>Google Coral Edge TPU</b>를 도입했습니다.</p>
+                        </div>
+                        <div class="bg-slate-50 p-4 rounded-xl border border-slate-100">
+                            <h4 class="font-semibold text-slate-800 mb-2">모델 양자화 (Quantization)</h4>
+                            <p class="text-slate-600">학습된 PyTorch 모델을 ONNX를 거쳐 TFLite 포맷으로 변환하고, <b>INT8 양자화</b>를 적용하여 모델 크기를 줄이고 Edge TPU 컴파일러로 최적화(`_edgetpu.tflite`)했습니다.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. 성과 및 고찰 섹션 -->
+    <section class="bg-slate-900 py-16 text-slate-300">
+        <div class="max-w-4xl mx-auto px-6 lg:px-8">
+            <h2 class="text-2xl font-bold text-white mb-6">성과 및 향후 과제</h2>
+            <div class="space-y-6">
+                <div>
+                    <h3 class="text-lg font-semibold text-blue-400 mb-2">System Integration (시스템 통합)</h3>
+                    <p class="leading-relaxed">MATLAB을 Master로 구성하여 각 파트(주행, 조작, 인식)의 간섭을 제어했습니다. 조작 시에는 주행을 멈추고, 주행 시에는 조작을 멈추는 ROS 기반 Master-Slave 구조를 성공적으로 구축하여 전체 자율화 시나리오를 완성했습니다.</p>
+                </div>
+                <div class="border-t border-slate-700 pt-6">
+                    <h3 class="text-lg font-semibold text-rose-400 mb-2">Limitation (한계점)</h3>
+                    <p class="leading-relaxed">모바일 환경 특성상 배터리 전원에 의존하게 되는데, 주행과 매니퓰레이터 조작을 병행할 시 전압 강하로 인한 로봇 팔 제어 불안정 현상이 관찰되었습니다. 향후 독립적인 BMS 구성이나 하드웨어 전력 분배 최적화를 통한 개선이 필요합니다.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-slate-950 py-8 text-center text-slate-500 text-sm">
+        <p>&copy; 2025 Robotics Portfolio. Built for Job Application.</p>
+    </footer>
+
+</body>
+</html>
